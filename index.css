@@ -1,0 +1,149 @@
+
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #000;
+}
+
+.color-button{
+    /* 弹性布局 让页面元素水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 设置body高度为100%窗口高度 */
+    height: 100vh;
+    background: #000;
+}
+
+.color-button{
+    position: relative;
+    left: 650px;
+    top: 150px;
+    text-decoration: none;
+    height: 50px;
+    font-size: 24px;
+    background:linear-gradient(to right,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    width: 200px;
+    line-height: 100px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50px;
+    z-index: 1;
+}
+
+
+/* 发光图层，用伪元素写 */
+#button::before{
+    content: "";
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top:-5px;
+    bottom: -5px;
+    background: linear-gradient(to right,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 50px;
+    /* 模糊 */
+    filter: blur(20px);
+    z-index: -1;
+}
+
+
+
+
+#button:hover{
+    animation: sun 8s infinite;
+}
+
+#button:hover::before{
+    animation: sun 8s infinite;
+}
+
+@keyframes sun{
+    100%{
+        background-position: -400% 0;
+    }
+}
+
+
+
+.title{
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(255, 125, 147);
+}
+
+.focus{
+    position: relative;
+    left: 625px;
+    top: 230px;
+    width: 250px;
+    height: 250px;
+    background-color: pink;
+    overflow: hidden; 
+}
+.focus ul{
+    width: 600%;
+    position: absolute;
+    bottom: -10px;
+    left: 80px;
+}
+
+.focus ul li{
+    margin-left: 15px;
+    list-style: none;
+    position: relative;
+    left: 12px;
+    width: 250px;
+    height: 220px;
+    float: left;
+
+}
+
+.arrow-l,.arrow-r{
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 24px;
+    height: 40px;
+    background: rgba(0,0,0,.3);
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-family: 'icomoon';
+    font-size: 18px;
+    z-index: 5;
+}
+ 
+.arrow-r{
+    right: 0;
+}
+
+.circle{
+    position: relative;
+    left: 100px;
+    top: 210px;
+}
+
+.current {
+    list-style: disc !important ;
+}
+
+
+.circle li{
+    list-style: circle;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
